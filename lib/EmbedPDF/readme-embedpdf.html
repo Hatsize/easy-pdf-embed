@@ -1,0 +1,392 @@
+<html>
+<head>
+<title>EmbedPDF Readme</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+p {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+td {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+h1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 24px;
+}
+h2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 17px;
+}
+h3 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+h4 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	text-decoration: underline;
+}
+.info {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+}
+-->
+</style>
+</head>
+
+<body bgcolor="#FFFFFF">
+&nbsp; <table border=0 width="100%" > <tr> <td valign=TOP><a href="http://www.randelshofer.ch">www.randelshofer.ch</a></td>
+    <td align=CENTER> <h1> EmbedPDF</h1></td><td align=RIGHT valign=TOP>&copy; Werner Randelshofer</td>
+</tr> </table><table border cellspacing=0 cellpadding=2 width="100%" > 
+<tr bgcolor="#EEEEFF"> <td align=CENTER>&nbsp;<a href="license.html"></a></td>
+</tr> 
+</table><div align="center"> <table width="496" border="0" align="center"> <tr> <td width="490" valign="top"> 
+<h1 align="center">Readme </h1><h2 ALIGN="LEFT">Contents</h2>
+<p ALIGN="LEFT"><a href="#Introduction">Introduction</a><A HREF="#features"><BR>
+Features</A><br>
+<a href="#requirements">System Requirements</a><br>
+<a href="#usage">Using the Applet<br>
+</a><a href="#javascriptAPI">JavaScript API</a><br>
+  <a href="#copyright">Copyright Notice<br>
+      </a><a href="#license">License Terms</a></p>
+<hr> <h2><a name="Introduction"></a>Introduction</h2>
+<p>The
+        EmbedPDF applet can be used to embed a PDF document into a HTML page.</p>
+<hr>
+<h2><a name="features"></a>Features</h2>
+<ul>
+  <li>CMYK images.</li>
+  <li>Sub-pixel Antialiasing</li>
+  <li>Hyperlinks</li>
+  <li>Page rotation in steps of 90 °</li>
+  <li>Printing</li>
+  <li>JavaScript API</li>
+  <li>Open PDF document in browser.</li>
+  </ul>
+<p>The following features are not implemented:</p>
+<ul>
+  <li>PDF documents with advanced features can not be displayed.</li>
+  <li>Text can not be selected and copied from the document.</li>
+  <li>There is no search function.</li>
+</ul>
+<hr>
+<h2><a name="requirements"></a>System Requirements</h2>
+<p> Needs a Java J2SE 6 capable internet browser. <br>
+</p>
+<hr>
+<h2><a name="usage"></a>Using the Applet</h2>
+<p>There are two versions of the applets. One which includes all the font files internally, and one which reads the fonts from separate font files.</p>
+<p>If you choose the version with included font files,  you need to upload the following files to your web-server:</p>
+<ul>
+  <li>EmbedPDF.jar</li>
+  <li>EmbedPDF.jar.pack.gz</li>
+  </ul>
+<p>If you choose the version with separate  font files,  you need to upload the following files to your web-server:</p>
+<ul>
+  <ul>
+          <li>EmbedPDF.jar</li>
+          <li>EmbedPDF.jar.pack.gz</li>
+          <li>d050000l.pfb</li>
+          <li> n019003l.pfb</li>
+          <li> n019004l.pfb</li>
+          <li> n019023l.pfb</li>
+          <li> n019024l.pfb</li>
+          <li> n021003l.pfb</li>
+          <li> n021004l.pfb</li>
+          <li> n021023l.pfb</li>
+          <li> n021024l.pfb</li>
+          <li> n022003l.pfb</li>
+          <li> n022004l.pfb</li>
+          <li> n022023l.pfb</li>
+          <li> n022024l.pfb</li>
+          <li> s050000l.pfb</li>
+  </ul>
+</ul>
+<p>The file <a href="examples/example.html">example.html</a> shows  how to
+  embed the applet into a    HTML document. It contains the HTML statements as
+  provided below.    Please note that the parameter values of the applet tag are <em>case sensitive!</em></p>
+<p>Required HTML tags are printed in <strong>bold</strong> letters.</p>
+<pre>&lt;html&gt;
+  &lt;body&gt;
+  <strong>  &lt;applet
+</strong>          id=&quot;embedPDF&quot;
+<strong>          code=&quot;EmbedPDF.class&quot;
+          codebase</strong>=&quot;.&quot;<strong>
+          archive=&quot;EmbedPDF.jar&quot;
+          width=</strong>&quot;700&quot;<strong>
+          height=</strong>&quot;620&quot;<strong>
+          mayscript</strong>=&quot;mayscript&quot;<strong>
+    &gt;
+
+      &lt;param name=&quot;pdf&quot; value=</strong>&quot;example.pdf&quot;<strong>/&gt;</strong> 
+      &lt;param name=&quot;fonts&quot; value=&quot;.&quot;/&gt; 
+      &lt;param name=&quot;enableOpenWindow&quot; value=&quot;true&quot;/&gt;
+      &lt;param name=&quot;enableSubpixelAA&quot; value=&quot;false&quot;/&gt;
+      &lt;param name=&quot;enablePrinting&quot; value=&quot;true&quot;/&gt;
+      
+    &lt;!-- Parameters for Sun's Java plug-in: --&gt;
+      &lt;param name=&quot;codebase_lookup&quot; value=&quot;false&quot;&gt;
+      &lt;param name=&quot;classloader_cache&quot; value=&quot;false&quot;&gt;
+      &lt;param name=&quot;java_arguments&quot; value=&quot;-Djnlp.packEnabled=true&quot;/&gt;
+      &lt;param name=&quot;image&quot; value=&quot;Splash.gif&quot;/&gt;
+      &lt;param name=&quot;boxborder&quot; value=&quot;false&quot;/&gt;
+      &lt;param name=&quot;centerimage&quot; value=&quot;true&quot;/&gt;
+      &lt;param name=&quot;boxbgcolor&quot; value=&quot;white&quot;&gt;
+      &lt;param name=&quot;boxfgcolor&quot; value=&quot;black&quot;&gt;
+      &lt;param name=&quot;boxmessage&quot; value=&quot;Loading EmbedPDF...&quot;&gt;
+  
+   &lt;!-- Provide a link to the PDF-document for browsers without Java support: --&gt;
+      &lt;a href=&quot;example.pdf&quot;&gt;example.pdf&lt;/a&gt;
+  
+<strong>   &lt;/applet&gt; 
+</strong> &lt;/body&gt;
+&lt;/html&gt;&nbsp;
+&nbsp;
+&nbsp;</pre>
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr valign="top">
+    <td><strong>Parameter&nbsp;&nbsp;</strong></td>
+    <td><strong>Required&nbsp;</strong></td>
+    <td><strong>Type&nbsp;&nbsp;</strong></td>
+    <td><p><strong>Description</strong><strong>&nbsp;</strong></p>      </td>
+  </tr>
+  <tr valign="top">
+    <td colspan="4"><hr size="1" noshade></td>
+    </tr>
+  <tr valign="top">
+    <td>id</td>
+    <td>optional</td>
+    <td>text</td>
+    <td><p>The id attribute can be used to access the applet from JavaScript. See <a href="#javascriptAPI">JavaScript API</a>.</p>
+        <p>&nbsp;</p></td>
+  </tr>
+  
+  <tr valign="top">
+    <td>code</td>
+    <td>required</td>
+    <td>text</td>
+    <td><p>The code attribute lets the browser know which Java class it must
+        use to show the applet. The value must be <code>&quot;EmbedPDF.class</code>&quot;.</p>
+      <p>&nbsp;</p></td>
+  </tr>
+  <tr valign="top">
+    <td>codebase</td>
+    <td>required</td>
+    <td>url</td>
+    <td><p>You can use the codebase attribue to restrict access of the applet to your web-server. The applet can only access files on the server that are in a sub-path of codebase.<br>
+      <br>
+    Therefore codebase must be the common parent directory of the PDF documents that you want to display, and of the Java archive files (.jar, and .jar.pack.gz).<br>
+    <br>
+    Usually &quot;.&quot; is the best choice for codebase. This way, the applet can access all files in the path which contains the HTML page.</p>
+      <p>&nbsp; </p></td>
+  </tr>
+  <tr valign="top">
+    <td>archive</td>
+    <td>required</td>
+    <td>url</td>
+    <td><p>The archive attribute gives the URL of the Java archive which contains the code of the applet. <br>
+      <br>
+      Please note that on most web-servers the case of this
+    value must match the case of the file name
+  &quot;<code>EmbedPDF.jar</code>&quot;.</p>
+      <p>If you specify the parameters for Sun's Java plug-in, you have to store the file &quot;<code>ANIMApplet.jar.pack.gz</code>&quot; in the same directory where you stored &quot;<code>ANIMApplet.jar</code>&quot;.</p>
+      <p>The archive URL is relative to the codebase URL.</p>
+      <p>&nbsp;</p></td>
+  </tr>
+  <tr valign="top">
+    <td>width</td>
+    <td>required</td>
+    <td>number&nbsp;</td>
+    <td rowspan="2"><p>Width and height of the applet.<br>
+    </p>
+      <p>&nbsp;</p></td>
+  </tr>
+  <tr valign="top">
+    <td>height</td>
+    <td>required</td>
+    <td>number</td>
+    </tr>
+  <tr valign="top">
+    <td colspan="4"><hr size="1" noshade></td>
+    </tr>
+  <tr valign="top">
+    <td>pdf</td>
+    <td>required</td>
+    <td>url&nbsp;</td>
+    <td><p>The file-name of the PDF document that you want to display.</p>
+      <p>The URL must point to a document which is in a sub-path of codebase.</p>
+      <p>&nbsp;</p></td>
+  </tr>
+  <tr valign="top">
+    <td colspan="4"><hr size="1" noshade></td>
+    </tr>
+  <tr valign="top">
+    <td>fonts</td>
+    <td>required</td>
+    <td>url&nbsp;</td>
+    <td><p>The folder which contains the font files (the location of the .pfb files).<br>
+      <br>
+      There are two versions of EmbedPDF.jar. One with included font files and one with separate font files. </p>
+      <p>If you use EmbedPDF.jar with included font files, you  <strong>must not</strong> specify this parameter.</p>
+      <p> If you use EmbedPDF.jar with separate font files, you must  upload all the .pfb files to your server, and you <strong>must</strong> specify this parameter, so that EmbedPDF knows where to find its fonts.<br>
+        </p>
+      <p>The URL must point to a document which is in a sub-path of codebase.</p>
+      <p>&nbsp;</p></td>
+  </tr>
+  <tr valign="top">
+    <td>enableOpenWindow</td>
+    <td>optional</td>
+    <td>boolean&nbsp;</td>
+    <td><p>Set this to &quot;false&quot; to remove the &quot;Open PDF in new Window&quot; button from the applet.</p>
+        <p>&nbsp;</p></td>
+  </tr>
+  <tr valign="top">
+    <td>enablePrinting</td>
+    <td>optional</td>
+    <td>boolean&nbsp;</td>
+    <td><p>Set this to &quot;false&quot; to remove the &quot;Print&quot; button from the applet.</p>
+        <p>&nbsp;</p></td>
+  </tr>
+  <tr valign="top">
+    <td>enableSubpixelAA</td>
+    <td>optional</td>
+    <td>boolean&nbsp;</td>
+    <td><p>Set this to &quot;true&quot; to enable subpixel antialiasing. This may improve the legibility of text on LCD screens. <br>
+      <br>
+    Please note that the current implementation requires a lot of memory to achieve the antialiasing. Also note that the text may exhibit some color fringing.</p>
+        <p>&nbsp;</p></td>
+  </tr>
+  <tr valign="top">
+    <td>boxbgcolor</td>
+    <td>&nbsp;</td>
+    <td>color</td>
+    <td><p>The background color of the applet. This color should match the background color of your HTML page.</p>
+      <p>Specify a hex value (e. g. &quot;0xff0000&quot; or &quot;#ff0000&quot;), three RGB
+        values (e.g. &quot;255,0,0&quot;) or an HTML color name (e.g. &quot;red&quot;). The default
+        value depends on the browser settings.</p>
+      <p>&nbsp;<br>
+          </p></td>
+  </tr>
+  <tr valign="top">
+    <td>boxfgcolor</td>
+    <td>&nbsp;</td>
+    <td>color</td>
+    <td><p>This parameter specifies the foreground color for messages 
+  displayed on the applet. This color should be different from boxbgcolor.</p>
+      <p>        Specify a hex value (e. g. &quot;0xff0000&quot; or &quot;#ff0000&quot;),
+        three RGB values (e.g. &quot;255,0,0&quot;) or an HTML color name (e.g. &quot;red&quot;).
+        The default value depends on the 
+        browser settings.<br>
+        &nbsp;</p></td>
+  </tr>
+  <tr valign="top">
+    <td>boxMessage</td>
+    <td>&nbsp;</td>
+    <td>text</td>
+    <td><p>If the browsers uses the Java Plug-In from Sun, this parameter specifies
+      a message that is shown while the applet is being loaded.</p>
+      <p>&nbsp;</p></td>
+  </tr>
+  <tr valign="top">
+    <td height="94">image</td>
+    <td>&nbsp;</td>
+    <td>url</td>
+    <td>Specifies
+      the image to be shown while the applet is loading.<br>
+      This is often referred to as a &quot;splash screen&quot;. </td>
+  </tr>
+  <tr valign="top">
+    <td colspan="4"><hr size="1" noshade></td>
+    </tr>
+  <tr valign="top">
+    <td height="94">centerimage</td>
+    <td>&nbsp;</td>
+    <td>boolean</td>
+    <td><p>Set this to &quot;true&quot; if you want to center the splash image. </p>
+      <p>Set this to &quot;false&quot; if you want to display the splash image at the top left corner of the applet.</p></td>
+  </tr>
+</table>
+<hr>
+<h2><a name="javascriptAPI" id="javascriptAPI"></a>JavaScript API </h2>
+<p>The EmbedPDF applet can be accessed from JavaScript. To this, you can assign an id to the applet in the &lt;applet&gt; tag. If you add more than one applet to a page, assign an individual id to each.</p>
+<pre>&lt;html&gt;
+  &lt;body&gt;
+    
+
+
+    &lt;applet <strong>id=&quot;embedPDF&quot;</strong> code=&quot;EmbedPDF.class&quot; codebase=&quot;.&quot; archive=&quot;EmbedPDF.jar&quot;
+          width=&quot;600&quot; height=&quot;400&quot;
+    &gt;
+
+      &lt;param name=&quot;pdf&quot; value=&quot;example.pdf&quot;/&gt; 
+   &lt;/applet&gt;
+ &lt;/body&gt;
+&lt;/html&gt;&nbsp;
+&nbsp;
+</pre>
+<p>The Javascript code below changes the PDF document being shown by the applet:</p>
+<pre>&lt;script type=&quot;text/javascript&quot;&gt;
+  var embedPDF=document.getElementById(&quot;embedPDF&quot;);
+  embedPDF.setPDF(&quot;example2.pdf&quot;);
+&lt;/script&gt;&nbsp;
+&nbsp;
+</pre>
+<p>The EmbedPDF applet provides the JavaScript API shown in the table below.</p>
+<table width="584" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="105"><strong>API&nbsp;&nbsp;</strong></td>
+    <td width="384"><p><strong>Description</strong><strong>&nbsp;</strong></p></td>
+  </tr>
+  <tr valign="top">
+    <td colspan="2"><hr size="1" noshade></td>
+  </tr>
+  <tr valign="top">
+    <td>printPDF()</td>
+    <td><p>Prints the PDF document.</p>
+        <p>&nbsp;</p></td>
+  </tr>
+  
+  <tr valign="top">
+    <td>setPDF(url)</td>
+    <td><p>Loads a PDF document from the specified URL.</p>
+        <p>&nbsp;</p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr><h2><a name="copyright"></a>Copyright Notice </h2>
+<p><strong>EmbedPDF</strong> Copyright
+  &copy; 2008-2013 Werner Randelshofer<br>
+    Harmettlenstr. 4, CH-6410 Goldau, Switzerland<br>
+    <a href="mailto:werner.randelshofer@bluewin.ch">werner.randelshofer@bluewin.ch</a><br>
+    <a href="http://www.randelshofer.ch">http://www.randelshofer.ch</a><br>
+    All rights reserved.</p>
+<p><strong>pdf-renderer</strong> Copyright &copy; 2004-2010 Sun Microsystems<br>
+4150 Network Circle, Santa Clara, California 95054, U.S.A.<br>
+All rights reserved.</p>
+<p>&nbsp;</p>
+<hr>
+<h2><a name="license" id="license"></a>License Terms</h2>
+<p>This library is free software; you can redistribute it and/or 
+modify it under the terms of the GNU Lesser General Public 
+License as published by the Free Software Foundation; either 
+version 2.1 of the License, or (at your option) any later version.<br>
+<br>
+ This library is distributed in the hope that it will be useful, 
+ but without any warranty; without even the implied warranty of 
+ merchantability or fitness for a particular purpose.  See the GNU 
+ Lesser General Public License for more details.</p>
+<hr><p><br>
+</p></td>
+</tr>
+    <tr>
+      <td valign="top">&nbsp;</td>
+    </tr>
+</table>
+</div>
+</body>
+</html>
